@@ -1,25 +1,29 @@
-#include <conio.h>
 #include <iostream>
+#include <conio.h>
+#include <cmath>
 
-using std::endl;
 using std::cin;
 using std::cout;
+using std::endl;
 
-int moduleof(int x) {
-	int t = x;
-	if (t < 0) {
-		t = -t;
-	}
-	return t;
+int absEr(int x, int y) {
+	return abs(x - y);
+}
+
+double relEr(int x, int y) {
+	return abs(absEr(x, y) / (double)y);
 }
 
 int main() {
-	int x;
-	cout << "This program finds absolute of a number\n";
-	cout << "Enter the number: ";
-	cin >> x;
+	int est, tru;
+	cout << "This program calculates relative and absolute errors\n";
+	cout << "Enter estimated value: ";
+	cin >> est;
 	cout << "\n";
-	cout << "The absolute of entered number is " << moduleof(x);
+	cout << "Enter true value: ";
+	cin >> tru;
+	cout << "An absolute error is: " << absEr(est, tru) << "\n";
+	cout << "A relative error is: " << relEr(est, tru) << "\n";
 	_getch();
 	return 0;
 }
