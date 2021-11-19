@@ -31,12 +31,16 @@ void Write(ostream& out, Rectangle& rect) {
 	cin >> x1;
 	cin >> y1;
 	out << x1;
+	out << " ";
 	out << y1;
+	out << "\n";
 	cout << "Enter 2nd point coordiantes: ";
 	cin >> x2;
 	cin >> y2;
 	out << x2;
+	out << " ";
 	out << y2;
+	out << "\n";
 
 	rect.A.x = x1; 
 	rect.A.y = y1;
@@ -45,9 +49,9 @@ void Write(ostream& out, Rectangle& rect) {
 	_getch();
 
 }
-void Read(ofstream& out, Rectangle& rect) {
-	out << rect.A.x << rect.A.y << endl;
-	out << rect.B.x << rect.B.y << endl;
+void Read(ifstream& in, Rectangle& rect) {
+	in >> rect.A.x >> rect.A.y;
+	in >> rect.B.x >> rect.B.y;
 }
 
 void PrintInfo(Rectangle& rect) {
@@ -113,7 +117,7 @@ int main() {
 				if(!fileinput){
 					break;
 				}
-				Read(out, rect);
+				Read(in, rect);
 				fileread = true;
 				break;
 		case '4': //write in file
